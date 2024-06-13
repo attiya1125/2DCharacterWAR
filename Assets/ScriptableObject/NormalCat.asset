@@ -18,6 +18,12 @@ MonoBehaviour:
   monsterStats:
   - stats: 0
     value: 0
-  - stats: 0
+  - stats: 1
     value: 0
+  - stats: 2
+    value: 0
+  - stats: 3
+    value: 5
+  - stats: 4
+    value: 1
   monsterPrefab: {fileID: 0}

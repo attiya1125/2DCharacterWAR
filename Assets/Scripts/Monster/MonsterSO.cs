@@ -9,7 +9,8 @@ public enum StatEnum
     Def,
     Hp,
     Speed,
-    AttackDictance
+    AttackDictance,
+    AttackDelay
 }
 
 [System.Serializable]
@@ -19,7 +20,7 @@ public class MonsterSO : ScriptableObject
     [Header("Info")]
     public Sprite monsterIcon;
     public string monsterName;
-    public MonsterData.AttackType attackType;
+    public float cooldTime;
 
     [Header("Stats")]
     public MonsterStats[] monsterStats;
@@ -43,19 +44,8 @@ public class MonsterSO : ScriptableObject
             return _statDict;
         }
     }
-
     [Header("MakeMoster")]
     public GameObject monsterPrefab;
-}
-
-[Serializable]
-public class MonsterData
-{
-    public enum AttackType
-    {
-        Near,
-        Far
-    }
 }
 
 [Serializable]

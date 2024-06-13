@@ -14,12 +14,12 @@ public class MonsterController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, monster.GetStat(StatEnum.AttackDictance), targetLayer);
         if (hit.collider != null)
         {
-            
+            Debug.Log(monster.GetStat(StatEnum.Atk));
         }
         else
         {
             transform.Translate(Vector2.right * monster.GetStat(StatEnum.Speed) * Time.deltaTime);
         }
-        Debug.DrawRay(transform.position, Vector2.right * monster.GetStat(StatEnum.Speed), Color.red);
+        Debug.DrawRay(transform.position, Vector2.right * monster.GetStat(StatEnum.AttackDictance), Color.red);
     }
 }
