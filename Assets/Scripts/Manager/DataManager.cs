@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class DataManager : Singleton<DataManager>
 {
-    public MonsterSO monsterSO;
-    [SerializeField] private MonsterSlot slot;
-
-    public void Awake()
+    public class DataEntry
     {
+        public MonsterSO monsterSO;
+        public int level;
 
+        public DataEntry(MonsterSO monsterSO, int level)
+        {
+            this.monsterSO = monsterSO;
+            this.level = level;
+        }
     }
 
-    public void SetSlot()
+    public List<DataEntry> dataList = new List<DataEntry>();
+    public void AddMonterData(MonsterSO monsterSO, int level)
     {
-        Debug.Log("?");
-        slot.AddMonster(monsterSO);
+        dataList.Add(new DataEntry(monsterSO, level));
     }
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3340049fc136afd4ebd52eadf01c5cd1, type: 3}
   m_Name: NormalCat
   m_EditorClassIdentifier: 
-  monsterIcon: {fileID: 0}
-  monsterName: 
-  attackType: 0
+  monsterIcon: {fileID: 21300000, guid: 7dd9ef21a2022ac4ea92eb9840c1297c, type: 3}
+  monsterName: Cat
+  cooldTime: 0
   monsterStats:
   - stats: 0
     value: 0
@@ -26,4 +26,6 @@ MonoBehaviour:
     value: 5
   - stats: 4
     value: 1
-  monsterPrefab: {fileID: 0}
+  - stats: 5
+    value: 1
+  monsterPrefab: {fileID: 6663725207806110714, guid: ba71285767fd3ff4bbb01dd385a78f2f, type: 3}

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MonsterCondition : MonoBehaviour
 {
-    
+    [SerializeField] private MonsterSO monsterSO;
 }
