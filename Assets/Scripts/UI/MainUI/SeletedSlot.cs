@@ -6,19 +6,23 @@ using UnityEngine.UI;
 
 public class SelectedSlot : MonoBehaviour
 {
-    [SerializeField] private MonsterSO monsterSO;
+    [SerializeField] private MonsterSelectedPlace monsterSelectedPlace;
+    public MonsterSO monsterSO;
     [SerializeField] private Image icon;
-    [SerializeField] private bool isSelected = false;
+    public bool isSelected = false;
     [SerializeField] private TextMeshProUGUI levelTxt;
 
-    private int _Level;
+    public int levelData;
+
+    private int _level = 1;
     public int Level
     {
-        get { return _Level; } 
+        get { return _level; } 
         set 
-        { 
-            _Level = value;
-            levelTxt.text = _Level.ToString();
+        {
+            _level = value;
+            levelTxt.text = _level.ToString();
+            levelData = _level;
         }
     }
 
@@ -28,12 +32,12 @@ public class SelectedSlot : MonoBehaviour
         {
             return;
         }
-        DataManager.Instance.AddMonterData(monsterSO, _Level);
+        monsterSelectedPlace.AddInven(monsterSO);
         isSelected = true;
     }
-
-    public void Start()
+    public void SetSlot(int level)
     {
-        Level = 5;
+        icon.sprite = monsterSO.monsterIcon;
+        Level = level;
     }
 }
