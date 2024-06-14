@@ -20,7 +20,9 @@ public class MonsterSO : ScriptableObject
     [Header("Info")]
     public Sprite monsterIcon;
     public string monsterName;
-    public float cooldTime;
+
+    [Header("BuyExp")]
+    public int exp;
 
     [Header("Stats")]
     public MonsterStats[] monsterStats;
@@ -46,6 +48,8 @@ public class MonsterSO : ScriptableObject
     }
     [Header("MakeMoster")]
     public GameObject monsterPrefab;
+    public int buyMonster;
+    public float cooldTime;
 }
 
 [Serializable]

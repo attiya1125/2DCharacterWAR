@@ -1,33 +1,24 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSelectedPlace : MonoBehaviour
+public class MonsterInventoryManager : Singleton<MonsterInventoryManager>
 {
-    public SelectedSlot[] slots;
+    [SerializeField] private GameObject selectedSlotPrefab;
+    public List <SelectedSlot> slots;
     public InvenSlot[] invenSlots;
-
     public Transform monseterSelectedPlace;
     public Transform invenPlace;
-
-    public void Init()
+    private void Start()
     {
-        slots = new SelectedSlot[monseterSelectedPlace.childCount];
-        invenSlots = new InvenSlot[invenPlace.childCount];
+        slots = new List<SelectedSlot>();
 
-        for (int i = 0; i < slots.Length; i++)
+        foreach (var nowData in DataManager.Instance.MonsterData)
         {
-            slots[i] = monseterSelectedPlace.GetChild(i).GetComponent<SelectedSlot>();
-        }
-
-
-        for (int i = 0; i < invenSlots.Length; i++)
-        {
-            invenSlots[i] = invenPlace.GetChild(i).GetComponent<InvenSlot>();
+            SelectedSlot now = Instantiate(selectedSlotPrefab, monseterSelectedPlace).GetComponent<SelectedSlot>();
+            slots.Add(now);
+            now.AwakeSlot(nowData.Key, nowData.Value);
         }
     }
-
     public void AddInven(MonsterSO monsterSO)
     {
         InvenSlot emptySlot = GetEmptySlot();
@@ -41,7 +32,7 @@ public class MonsterSelectedPlace : MonoBehaviour
 
     private InvenSlot GetEmptySlot()
     {
-        for(int i = 0; i < invenSlots.Length; i++)
+        for (int i = 0; i < invenSlots.Length; i++)
         {
             if (invenSlots[i].monsterSO == null)
             {

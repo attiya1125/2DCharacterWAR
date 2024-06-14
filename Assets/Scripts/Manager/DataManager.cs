@@ -3,69 +3,29 @@ using System.Collections.Generic;
 
 public class DataManager : Singleton<DataManager>
 {
-    public class DataEntry
+    [HideInInspector] public MonsterManager monsterManager;
+    [HideInInspector] public ExpManager expManager;
+
+    // 컨트롤 K+C
+    private void Awake()
     {
-        public MonsterSO monsterSO;
-        public int level;
-
-        public DataEntry(MonsterSO monsterSO, int level)
-        {
-            this.monsterSO = monsterSO;
-            this.level = level;
-        }
+        monsterManager = GetComponent<MonsterManager>();
+        expManager = GetComponent<ExpManager>();
     }
-
-    public List<DataEntry> dataList = new List<DataEntry>();
-    public void AddMonterData(MonsterSO monsterSO, int level)
-    {
-        dataList.Add(new DataEntry(monsterSO, level));
-    }
-
-    private Dictionary<MonsterSO, int> _monseterData;
     public Dictionary<MonsterSO, int> MonsterData
     {
         get
         {
-            if (_monseterData == null)
-            {
-                _monseterData = new Dictionary<MonsterSO, int>();
-            }
-            return _monseterData;
+            return monsterManager.MonsterData;
         }
     }
-
-    public void InitializeData(List<MonsterSO> monsters, List<int> levels)
+    public void ChangeLevel(MonsterSO monsterSO, int level)
     {
-        if (monsters.Count != levels.Count)
-        {
-            return;
-        }
-
-        for (int i = 0; i < monsters.Count; i++)
-        {
-            MonsterData[monsters[i]] = levels[i];
-        }
+        monsterManager.ChangeLevel(monsterSO, level);
     }
 
-    public MonsterSelectedPlace selectedPlace;
-    private void Awake()
+    public bool SubtractExp(int exp)
     {
-        List<MonsterSO> monsters = new List<MonsterSO>();
-        List<int> levels = new List<int>();
-        selectedPlace.Init();
-
-        for (int i = 0; i < selectedPlace.slots.Length; i++)
-        {
-            monsters.Add(selectedPlace.slots[i].monsterSO);
-            levels.Add(selectedPlace.slots[i].Level);
-        }
-
-        InitializeData(monsters, levels);
-    }
-    // 컨트롤 K+C
-
-    public void SetLevel(MonsterSO monsterSO, int level)
-    {
-        MonsterData[monsterSO] = level;
+        return expManager.SubtractExp(exp);
     }
 }

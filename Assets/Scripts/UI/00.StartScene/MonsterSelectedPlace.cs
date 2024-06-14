@@ -1,26 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterInventoryManager : Singleton<MonsterInventoryManager>
+public class MonsterSelectedPlace : MonoBehaviour
 {
     public SelectedSlot[] slots;
+    public InvenSlot[] invenSlots;
+
     public Transform monseterSelectedPlace;
-    private void Awake()
+    public Transform invenPlace;
+
+    public void Init()
     {
         slots = new SelectedSlot[monseterSelectedPlace.childCount];
+        invenSlots = new InvenSlot[invenPlace.childCount];
 
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i] = monseterSelectedPlace.GetChild(i).GetComponent<SelectedSlot>();
         }
-    }
 
-    private void Start()
-    {
-        foreach (var slot in slots)
+
+        for (int i = 0; i < invenSlots.Length; i++)
         {
-            slot.SetSlot(DataManager.Instance.MonsterData[slot.monsterSO]);
+            invenSlots[i] = invenPlace.GetChild(i).GetComponent<InvenSlot>();
         }
     }
+
+    
 }
