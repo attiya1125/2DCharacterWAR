@@ -49,7 +49,6 @@ public class MonsterSO : ScriptableObject
     }
     [Header("MakeMoster")]
     public GameObject monsterPrefab;
-    public int buyMonster;
     public float cooldTime;
 }
 

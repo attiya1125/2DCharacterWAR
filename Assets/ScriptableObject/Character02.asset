@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterIcon: {fileID: 21300000, guid: 19b1a0b6cf654e047b8fb7ace75bab8b, type: 3}
   monsterName: Cat
-  gold: 0
+  gold: 20
   exp: 0
   monsterStats:
   - stats: 0
@@ -29,6 +29,5 @@ MonoBehaviour:
     value: 1
   - stats: 5
     value: 3
-  monsterPrefab: {fileID: 6663725207806110714, guid: ba71285767fd3ff4bbb01dd385a78f2f, type: 3}
-  buyMonster: 0
-  cooldTime: 0
+  monsterPrefab: {fileID: 5799685113206728628, guid: 59db5e12a86905a48a0828ac97453dd1, type: 3}
+  cooldTime: 3

@@ -200,6 +200,7 @@ MonoBehaviour:
   monsterSOs:
   - {fileID: 11400000, guid: ac893552d8bada6478553945a8db0b58, type: 2}
   - {fileID: 11400000, guid: 27de0a1227cb0414cab884824b06d8be, type: 2}
+  - {fileID: 11400000, guid: 2a913f6d0733232439e1cfde137f624b, type: 2}
 --- !u!114 &36564937
 MonoBehaviour:
   m_ObjectHideFlags: 0

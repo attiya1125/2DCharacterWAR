@@ -17,8 +17,6 @@ public class Slot : MonoBehaviour
 
     public bool canMakeMonster = true;
 
-    [SerializeField] private Transform makePosition;
-
     public void Init(MonsterSlot monsterSlot, int i)
     {
         slot = monsterSlot;
@@ -36,7 +34,7 @@ public class Slot : MonoBehaviour
     {
         icon.sprite = monsterSO.monsterIcon;
         time = monsterSO.cooldTime;
-        gold.text = monsterSO.buyMonster.ToString();
+        gold.text = monsterSO.gold.ToString();
     }
     void Update()
     {
@@ -56,15 +54,16 @@ public class Slot : MonoBehaviour
     }
     public void OnClickSlot()
     {
-        if (canMakeMonster)
+        if (canMakeMonster && GameManager.instance.Gold >= monsterSO.gold)
         {
             MakeMonster(monsterSO);
+            GameManager.instance.Gold -= monsterSO.gold;
             canMakeMonster = false;
         }
     }
 
     void MakeMonster(MonsterSO monsterSO)
     {
-        Instantiate(monsterSO.monsterPrefab, makePosition.position, Quaternion.identity);
+        GameManager.instance.MakeMonster(monsterSO);
     }
 }

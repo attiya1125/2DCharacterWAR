@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3340049fc136afd4ebd52eadf01c5cd1, type: 3}
   m_Name: Character03
   m_EditorClassIdentifier: 
-  monsterIcon: {fileID: 21300000, guid: 433e4d798fe15aa499c14df5f2a6f279, type: 3}
+  monsterIcon: {fileID: 369907070, guid: 433e4d798fe15aa499c14df5f2a6f279, type: 3}
   monsterName: 
-  gold: 0
+  gold: 30
   exp: 0
   monsterStats:
   - stats: 0
@@ -29,6 +29,5 @@ MonoBehaviour:
     value: 3
   - stats: 5
     value: 2
-  monsterPrefab: {fileID: 0}
-  buyMonster: 0
-  cooldTime: 0
+  monsterPrefab: {fileID: 4461754082103241393, guid: 4671e4ded4e6e8a419e2feed23df8aff, type: 3}
+  cooldTime: 5
