@@ -18,7 +18,7 @@ public class EnemyCastle : MonoBehaviour, IDamageable
     {
         SetValue();
         SetCastleHpText();
-        StartCoroutine(MakeMonsters());
+        StartCoroutine(MakeMonsters(DataManager.Instance.stageManager.Stage));
     }
 
     void Update()
@@ -56,19 +56,34 @@ public class EnemyCastle : MonoBehaviour, IDamageable
         SetCastleHpText();
     }
 
-    void InstantiateMonster()
+    void InstantiateMonster(int stage)
     {
-        Instantiate(monsterSOs[Random.Range(0,2)].monsterPrefab, makeMonster.position, Quaternion.identity);
+        switch (stage)
+        {
+            case 1:
+                Instantiate(monsterSOs[0].monsterPrefab, makeMonster.position, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(monsterSOs[Random.Range(0, 2)].monsterPrefab, makeMonster.position, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(monsterSOs[Random.Range(0, 2)].monsterPrefab, makeMonster.position, Quaternion.identity);
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
     }
-    IEnumerator MakeMonsters()
+    IEnumerator MakeMonsters(int stage)
     {
         while (true)
         {
-            InstantiateMonster();
+            InstantiateMonster(stage);
             int rand = Random.Range(0, 100);
-            if (rand <= 15)
+            if (rand / stage <= 15)
             {
-                InstantiateMonster();
+                InstantiateMonster(stage);
             }
             yield return new WaitForSeconds(Random.Range(2, 5));
         }

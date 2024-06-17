@@ -3,10 +3,12 @@ using UnityEngine.SceneManagement;
 public class StartSceneManager : Singleton<StartSceneManager>
 {
     public MonsterInventoryManager monsterInventoryManager;
-    public void OnClickStartBtn(MonsterInventoryManager monsterInventory)
+
+    public void OnClickStartBtn(MonsterInventoryManager monsterInventory, int stage)
     {
         DataManager.Instance.selectedMonsterSO.Clear();
 
+        DataManager.Instance.stageManager.Stage = stage;
         if (monsterInventoryManager == null)
         {
             monsterInventoryManager = monsterInventory;
