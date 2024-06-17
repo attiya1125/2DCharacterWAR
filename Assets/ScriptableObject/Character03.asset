@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3340049fc136afd4ebd52eadf01c5cd1, type: 3}
-  m_Name: NormalCat
+  m_Name: Character03
   m_EditorClassIdentifier: 
-  monsterIcon: {fileID: 21300000, guid: 394e80de66b93c54b94fceaf58b94bca, type: 3}
-  monsterName: Cat
+  monsterIcon: {fileID: 21300000, guid: 433e4d798fe15aa499c14df5f2a6f279, type: 3}
+  monsterName: 
+  gold: 0
   exp: 0
   monsterStats:
   - stats: 0
-    value: 5
+    value: 3
   - stats: 1
-    value: 5
+    value: 0
   - stats: 2
-    value: 5
+    value: 80
   - stats: 3
-    value: 5
+    value: 2
   - stats: 4
-    value: 1
+    value: 3
   - stats: 5
-    value: 1
-  monsterPrefab: {fileID: 6663725207806110714, guid: ba71285767fd3ff4bbb01dd385a78f2f, type: 3}
+    value: 2
+  monsterPrefab: {fileID: 0}
   buyMonster: 0
   cooldTime: 0

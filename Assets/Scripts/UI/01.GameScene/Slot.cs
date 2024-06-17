@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class Slot : MonoBehaviour
 {
     public MonsterSO monsterSO;
     public MonsterSlot slot;
+    public TextMeshProUGUI gold;
     public Image icon;
     public Image timeIcon;
 
@@ -27,12 +29,14 @@ public class Slot : MonoBehaviour
     {
         monsterSO = null;
         icon.sprite = null;
+        gold.text = null;
     }
 
     public void SetSlot()
     {
         icon.sprite = monsterSO.monsterIcon;
         time = monsterSO.cooldTime;
+        gold.text = monsterSO.buyMonster.ToString();
     }
     void Update()
     {

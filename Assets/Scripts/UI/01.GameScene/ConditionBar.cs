@@ -6,7 +6,6 @@ public class ConditionBar : MonoBehaviour
 {
     public float curValue;
     public float maxValue;
-    public float startValue;
 
     public Image hpBar;
 
@@ -25,12 +24,18 @@ public class ConditionBar : MonoBehaviour
     }
     public void UpdateHpBar(float hpPercentage)
     {
-        hpBar.fillAmount = Mathf.Clamp01(hpPercentage);
+        hpBar.fillAmount = hpPercentage;
     }
     void SetValue()
     {
         curValue = monster.StatDict[StatEnum.Hp];
-        startValue = curValue;
-        UpdateHpBar(curValue / startValue);
+        maxValue = curValue;
+        UpdateHpBar(curValue / maxValue);
+    }
+
+    public void Subtract(float value)
+    {
+        curValue = Mathf.Max(curValue - value, 0);
+        UpdateHpBar(curValue / maxValue);
     }
 }

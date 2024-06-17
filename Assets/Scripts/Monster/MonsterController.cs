@@ -4,6 +4,10 @@ public class MonsterController : MonoBehaviour
 {
     [SerializeField] private MonsterObject monster;
     [SerializeField] private LayerMask targetLayer;
+
+    private bool canAttack = true;
+    private float time;
+
     void Awake()
     {
         monster = GetComponent<MonsterObject>();
@@ -11,9 +15,17 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        int layerNumber = Mathf.RoundToInt(Mathf.Log(targetLayer.value, 2));
+        if (!canAttack)
+        {
+            time += Time.deltaTime;
+            if (time > monster.GetStat(StatEnum.AttackDelay))
+            {
+                canAttack = true;
+                time = 0;
+            }
+        }
 
-        if (layerNumber == 7)
+        if (this.gameObject.layer == 6)
         {
             Target(Vector2.left);
         }
@@ -25,10 +37,22 @@ public class MonsterController : MonoBehaviour
 
     private void Target(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, monster.GetStat(StatEnum.AttackDictance), targetLayer);
-        if (hit.collider != null)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, monster.GetStat(StatEnum.AttackDictance), targetLayer);
+
+        if (hits.Length != 0)
         {
-            Debug.Log(monster.GetStat(StatEnum.Atk));
+            foreach (RaycastHit2D hit in hits)
+            {
+                IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    if (canAttack)
+                    {
+                        damageable.TakeDamage(monster.GetStat(StatEnum.Atk));
+                    }
+                }
+            }
+            canAttack = false;
         }
         else
         {
