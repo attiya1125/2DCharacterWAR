@@ -11,15 +11,29 @@ public class MonsterController : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, monster.GetStat(StatEnum.AttackDictance), targetLayer);
+        int layerNumber = Mathf.RoundToInt(Mathf.Log(targetLayer.value, 2));
+
+        if (layerNumber == 7)
+        {
+            Target(Vector2.left);
+        }
+        else
+        {
+            Target(Vector2.right);
+        }
+    }
+
+    private void Target(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, monster.GetStat(StatEnum.AttackDictance), targetLayer);
         if (hit.collider != null)
         {
             Debug.Log(monster.GetStat(StatEnum.Atk));
         }
         else
         {
-            transform.Translate(Vector2.right * monster.GetStat(StatEnum.Speed) * Time.deltaTime);
+            transform.Translate(direction * monster.GetStat(StatEnum.Speed) * Time.deltaTime);
         }
-        Debug.DrawRay(transform.position, Vector2.right * monster.GetStat(StatEnum.AttackDictance), Color.red);
+        Debug.DrawRay(transform.position, direction * monster.GetStat(StatEnum.AttackDictance), Color.red);
     }
 }

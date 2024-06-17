@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SelectedSlot : MonoBehaviour
 {
+    public MonsterInventoryManager monsterInventoryManager;
     public MonsterSO monsterSO;
     public bool isSelected = false;
 
@@ -32,7 +33,7 @@ public class SelectedSlot : MonoBehaviour
         {
             return;
         }
-        MonsterInventoryManager.Instance.AddInven(monsterSO);
+        monsterInventoryManager.AddInven(monsterSO);
         isSelected = true;
     }
 
@@ -50,8 +51,9 @@ public class SelectedSlot : MonoBehaviour
         levelBtnTxt.text = $"Exp : {level * monsterSO.exp}";
     }
 
-    public void AwakeSlot(MonsterSO monsterSO, int level)
+    public void AwakeSlot(MonsterSO monsterSO, int level, MonsterInventoryManager monsterInventory)
     {
+        monsterInventoryManager = monsterInventory;
         this.monsterSO = monsterSO;
         icon.sprite = monsterSO.monsterIcon;
         Level = level;

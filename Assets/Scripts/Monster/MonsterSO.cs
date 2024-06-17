@@ -21,7 +21,8 @@ public class MonsterSO : ScriptableObject
     public Sprite monsterIcon;
     public string monsterName;
 
-    [Header("BuyExp")]
+    [Header("Shop")]
+    public int gold;
     public int exp;
 
     [Header("Stats")]

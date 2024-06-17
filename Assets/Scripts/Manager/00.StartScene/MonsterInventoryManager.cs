@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterInventoryManager : Singleton<MonsterInventoryManager>
+public class MonsterInventoryManager : MonoBehaviour
 {
     [SerializeField] private GameObject selectedSlotPrefab;
     public List <SelectedSlot> slots;
-    public InvenSlot[] invenSlots;
+    public List<InvenSlot> invenSlots;
+
     public Transform monseterSelectedPlace;
-    public Transform invenPlace;
     private void Start()
     {
         slots = new List<SelectedSlot>();
@@ -16,7 +16,7 @@ public class MonsterInventoryManager : Singleton<MonsterInventoryManager>
         {
             SelectedSlot now = Instantiate(selectedSlotPrefab, monseterSelectedPlace).GetComponent<SelectedSlot>();
             slots.Add(now);
-            now.AwakeSlot(nowData.Key, nowData.Value);
+            now.AwakeSlot(nowData.Key, nowData.Value, this);
         }
     }
     public void AddInven(MonsterSO monsterSO)
@@ -29,10 +29,9 @@ public class MonsterInventoryManager : Singleton<MonsterInventoryManager>
             return;
         }
     }
-
     private InvenSlot GetEmptySlot()
     {
-        for (int i = 0; i < invenSlots.Length; i++)
+        for (int i = 0; i < invenSlots.Count; i++)
         {
             if (invenSlots[i].monsterSO == null)
             {

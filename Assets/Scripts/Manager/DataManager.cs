@@ -1,16 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DataManager : Singleton<DataManager>
 {
     [HideInInspector] public MonsterManager monsterManager;
     [HideInInspector] public ExpManager expManager;
 
+    public List<MonsterSO> selectedMonsterSO;
+
     // ÄÁÆ®·Ñ K+C
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         monsterManager = GetComponent<MonsterManager>();
         expManager = GetComponent<ExpManager>();
+        selectedMonsterSO = new List<MonsterSO>();
     }
     public Dictionary<MonsterSO, int> MonsterData
     {
