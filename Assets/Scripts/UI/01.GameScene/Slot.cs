@@ -54,10 +54,10 @@ public class Slot : MonoBehaviour
     }
     public void OnClickSlot()
     {
-        if (canMakeMonster && GameManager.instance.Gold >= monsterSO.gold)
+        if (canMakeMonster && GameManager.instance.goldManager.Gold >= monsterSO.gold)
         {
             MakeMonster(monsterSO);
-            GameManager.instance.Gold -= monsterSO.gold;
+            GameManager.instance.goldManager.Gold -= monsterSO.gold;
             canMakeMonster = false;
         }
     }
