@@ -5,50 +5,33 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] private TextMeshProUGUI goldTxt;
-    [SerializeField] private Transform makeMonster;
 
-    private int _level = 1;
-    public int Level
-    {
-        get { return _level; }
-        set { Level = value; } 
-    }
-    private int _gold;
-    public int Gold
-    {
-        get { return _gold; }
-        set { _gold = value; } 
-    }
+    [HideInInspector] public LevelManager levelManager;
+    [HideInInspector] public GoldManager goldManager;
+    [SerializeField] private Transform makeMonster;
 
     private void Awake()
     {
         instance = this;
+        levelManager = GetComponent<LevelManager>();
+        goldManager = GetComponent<GoldManager>();
     }
 
     private void Start()
     {
-        Gold = 0;
-        StartCoroutine(UpGold());
+        goldManager.Gold = 0;
+        goldManager.UpGold();
+        levelManager.SetLevelTxt();
     }
 
-    private void Update()
+    public void OnClickLevelUpBtn()
     {
-        goldTxt.text = "Gold : " + _gold.ToString();
-    }
-
-    IEnumerator UpGold()
-    {
-        while (true)
+        levelManager.LevelUp(goldManager);
+        if (levelManager.Level >= goldManager.maxGold.Length)
         {
-            SetGold();
-            yield return new WaitForSeconds(1f);
+            levelManager.MaxLevel();
+            return;
         }
-    }
-
-    private void SetGold()
-    {
-        Gold += (10 * Level);
     }
 
     public void MakeMonster(MonsterSO monsterSO)
