@@ -6,6 +6,7 @@ public class DataManager : Singleton<DataManager>
 {
     [HideInInspector] public MonsterManager monsterManager;
     [HideInInspector] public ExpManager expManager;
+    [HideInInspector] public StageManager stageManager;
 
     public List<MonsterSO> selectedMonsterSO;
 
@@ -15,6 +16,7 @@ public class DataManager : Singleton<DataManager>
         base.Awake();
         monsterManager = GetComponent<MonsterManager>();
         expManager = GetComponent<ExpManager>();
+        stageManager = GetComponent<StageManager>();
         selectedMonsterSO = new List<MonsterSO>();
     }
     public Dictionary<MonsterSO, int> MonsterData

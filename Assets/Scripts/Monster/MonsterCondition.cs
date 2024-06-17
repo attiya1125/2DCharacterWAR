@@ -20,6 +20,11 @@ public class MonsterCondition : MonoBehaviour, IDamageable
     {
         if (conditionBar.hpBar.fillAmount == 0)
         {
+            if (this.gameObject.tag == "Enemy")
+            {
+                Debug.Log("?");
+                GameManager.instance.goldManager.Gold += monsterSO.gold;
+            }
             Destroy(this.gameObject);
         }
     }

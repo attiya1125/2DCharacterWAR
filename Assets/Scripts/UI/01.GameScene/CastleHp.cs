@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,11 +7,14 @@ public class CastleHp : MonoBehaviour, IDamageable
     [SerializeField] private float curValue;
     [SerializeField] private float maxValue;
 
+    [SerializeField] private TextMeshProUGUI castleHp;
+
     public Image hpBar;
 
     private void Start()
     {
         SetValue();
+        SetHpTxt();
     }
 
     void Update()
@@ -28,11 +32,15 @@ public class CastleHp : MonoBehaviour, IDamageable
     {
         UpdateHpBar(curValue / maxValue);
     }
+    void SetHpTxt()
+    {
+        castleHp.text = $"{maxValue}/{curValue}";
+    }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("?");
         curValue = Mathf.Max(curValue - damage, 0);
         UpdateHpBar(curValue / maxValue);
+        SetHpTxt() ;
     }
 }

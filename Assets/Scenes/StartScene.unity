@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterManager: {fileID: 0}
   expManager: {fileID: 0}
+  stageManager: {fileID: 0}
   selectedMonsterSO: []
 --- !u!4 &36564934
 Transform:
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 36564932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b32635926f9f78a44b13337723d92c54, type: 3}
+  m_Script: {fileID: 11500000, guid: 3434118a316a88943880362154bc7bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &102474854

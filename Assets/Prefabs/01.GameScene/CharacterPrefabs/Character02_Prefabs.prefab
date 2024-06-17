@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1241817693412057799}
   m_Layer: 7
   m_Name: Character02_Prefabs
-  m_TagString: Untagged
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
