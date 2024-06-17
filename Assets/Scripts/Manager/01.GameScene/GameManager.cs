@@ -1,6 +1,6 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public LevelManager levelManager;
     [HideInInspector] public GoldManager goldManager;
     [SerializeField] private Transform makeMonster;
+
+    [SerializeField] private GameObject stageClearPanel;
+    [SerializeField] private TextMeshProUGUI addExpTxt;
+
+    int setExp;
 
     private void Awake()
     {
@@ -22,6 +27,7 @@ public class GameManager : MonoBehaviour
         goldManager.Gold = 0;
         goldManager.UpGold();
         levelManager.SetLevelTxt();
+        setExp = DataManager.Instance.expManager.PlayerExp;
     }
 
     public void OnClickLevelUpBtn()
@@ -37,5 +43,16 @@ public class GameManager : MonoBehaviour
     public void MakeMonster(MonsterSO monsterSO)
     {
         Instantiate(monsterSO.monsterPrefab, makeMonster.position, Quaternion.identity);
+    }
+
+    public void EndGame()
+    {
+        stageClearPanel.SetActive(true);
+        addExpTxt.text = $"Exp : {setExp} -> {DataManager.Instance.expManager.PlayerExp}";
+    }
+
+    public void GoStartScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

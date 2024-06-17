@@ -3,9 +3,14 @@ using UnityEngine.SceneManagement;
 public class StartSceneManager : Singleton<StartSceneManager>
 {
     public MonsterInventoryManager monsterInventoryManager;
-    public void OnClickStartBtn()
+    public void OnClickStartBtn(MonsterInventoryManager monsterInventory)
     {
         DataManager.Instance.selectedMonsterSO.Clear();
+
+        if (monsterInventoryManager == null)
+        {
+            monsterInventoryManager = monsterInventory;
+        }
 
         foreach(var data in monsterInventoryManager.invenSlots)
         {

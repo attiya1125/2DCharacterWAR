@@ -15,14 +15,14 @@ MonoBehaviour:
   monsterIcon: {fileID: 369907070, guid: 433e4d798fe15aa499c14df5f2a6f279, type: 3}
   monsterName: 
   gold: 30
-  exp: 0
+  exp: 30
   monsterStats:
   - stats: 0
-    value: 3
+    value: 15
   - stats: 1
     value: 0
   - stats: 2
-    value: 80
+    value: 50
   - stats: 3
     value: 2
   - stats: 4

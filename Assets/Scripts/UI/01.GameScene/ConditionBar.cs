@@ -28,7 +28,7 @@ public class ConditionBar : MonoBehaviour
     }
     void SetValue()
     {
-        curValue = monster.StatDict[StatEnum.Hp];
+        curValue = monster.StatDict[StatEnum.Hp] * DataManager.Instance.MonsterData[monster];
         maxValue = curValue;
         UpdateHpBar(curValue / maxValue);
     }

@@ -48,7 +48,7 @@ public class MonsterController : MonoBehaviour
                 {
                     if (canAttack)
                     {
-                        damageable.TakeDamage(monster.GetStat(StatEnum.Atk));
+                        damageable.TakeDamage(monster.GetStat(StatEnum.Atk) + (DataManager.Instance.MonsterData[monster.monsterSO] * 2));
                     }
                 }
             }

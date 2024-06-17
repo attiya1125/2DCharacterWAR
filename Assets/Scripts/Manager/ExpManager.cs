@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ExpManager : MonoBehaviour
 {
+
     private int _playerExp;
     public int PlayerExp
     {
         get { return _playerExp; }
         set
         {
-            _playerExp += value;
+            _playerExp = value;
         }
     }
 
@@ -18,7 +20,7 @@ public class ExpManager : MonoBehaviour
     {
         if (_playerExp >= exp)
         {
-            _playerExp = -exp;
+            _playerExp -= exp;
             return true;
         }
         return false;

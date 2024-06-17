@@ -18,13 +18,13 @@ MonoBehaviour:
   exp: 10
   monsterStats:
   - stats: 0
-    value: 8
+    value: 5
   - stats: 1
     value: 1
   - stats: 2
-    value: 50
+    value: 80
   - stats: 3
-    value: 2
+    value: 3
   - stats: 4
     value: 2
   - stats: 5

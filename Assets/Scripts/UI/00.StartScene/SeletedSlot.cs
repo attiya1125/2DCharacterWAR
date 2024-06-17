@@ -43,6 +43,13 @@ public class SelectedSlot : MonoBehaviour
         if (isLevelUp)
         {
             Level = _level+1;
+            if (Level == 10)
+            {
+                levelBtnTxt.text = "";
+                levelTxt.text = "Max";
+                levelUpBtn.interactable = false;
+            }
+            DataManager.Instance.ChangeLevel(monsterSO, Level);
         }
     }
     void SetText(int level)

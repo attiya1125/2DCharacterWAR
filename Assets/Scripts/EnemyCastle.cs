@@ -25,6 +25,7 @@ public class EnemyCastle : MonoBehaviour, IDamageable
     {
         if (hpBar.fillAmount == 0)
         {
+            GameManager.instance.EndGame();
             Destroy(this.gameObject);
         }
     }

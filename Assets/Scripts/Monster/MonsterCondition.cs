@@ -8,8 +8,6 @@ public class MonsterCondition : MonoBehaviour, IDamageable
     [SerializeField] private MonsterObject monster;
     [SerializeField] private ConditionBar conditionBar;
 
-    private bool isDead = false;
-
     private void Awake()
     {
         monster = GetComponent<MonsterObject>();
@@ -22,7 +20,7 @@ public class MonsterCondition : MonoBehaviour, IDamageable
         {
             if (this.gameObject.tag == "Enemy")
             {
-                Debug.Log("?");
+                DataManager.Instance.expManager.PlayerExp += monsterSO.exp;
                 GameManager.instance.goldManager.Gold += monsterSO.gold;
             }
             Destroy(this.gameObject);
