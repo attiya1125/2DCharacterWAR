@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        goldManager.Gold = 1000;
+        Time.timeScale = 1;
+        goldManager.Gold = 0;
         goldManager.UpGold();
         levelManager.SetLevelTxt();
         setExp = DataManager.Instance.expManager.PlayerExp;
@@ -48,11 +49,13 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        Time.timeScale = 0;
         stageClearPanel.SetActive(true);
         addExpTxt.text = $"Exp : {setExp} -> {DataManager.Instance.expManager.PlayerExp}";
     }
     public void LoseGame()
     {
+        Time.timeScale = 0;
         DataManager.Instance.expManager.PlayerExp = setExp;
         stageClearPanel.SetActive(true);
         stageClearTxt.text = "Stage Failed";
