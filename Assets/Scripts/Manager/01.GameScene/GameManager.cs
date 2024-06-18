@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        goldManager.Gold = 0;
+        goldManager.Gold = 1000;
         goldManager.UpGold();
         levelManager.SetLevelTxt();
         setExp = DataManager.Instance.expManager.PlayerExp;

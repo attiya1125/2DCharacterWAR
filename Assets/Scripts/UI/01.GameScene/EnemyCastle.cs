@@ -49,7 +49,7 @@ public class EnemyCastle : MonoBehaviour, IDamageable
         maxValue = curValue;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 vector2)
     {
         curValue = Mathf.Max(curValue - damage, 0);
         UpdateHpBar(curValue / maxValue);

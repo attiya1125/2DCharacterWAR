@@ -38,7 +38,7 @@ public class CastleHp : MonoBehaviour, IDamageable
         castleHp.text = $"{maxValue}/{curValue}";
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 vector2)
     {
         curValue = Mathf.Max(curValue - damage, 0);
         UpdateHpBar(curValue / maxValue);

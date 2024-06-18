@@ -50,11 +50,11 @@ public class MonsterController : MonoBehaviour
                     {
                         if (this.gameObject.CompareTag("Enemy"))
                         {
-                            damageable.TakeDamage(monster.GetStat(StatEnum.Atk) + (DataManager.Instance.stageManager.Stage * 2));
+                            damageable.TakeDamage(monster.GetStat(StatEnum.Atk) + (DataManager.Instance.stageManager.Stage * 2), direction);
                         }
                         else
                         {
-                            damageable.TakeDamage(monster.GetStat(StatEnum.Atk) + (DataManager.Instance.MonsterData[monster.monsterSO] * 2));
+                            damageable.TakeDamage(monster.GetStat(StatEnum.Atk) + (DataManager.Instance.MonsterData[monster.monsterSO] * 2), direction);
                         }
                     }
                 }

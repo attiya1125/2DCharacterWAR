@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8809763385744492989}
   - component: {fileID: 6678713997909598787}
   - component: {fileID: 571988007014644653}
+  - component: {fileID: 3617884346009498531}
   m_Layer: 6
   m_Name: Charcater01
   m_TagString: Enemy
@@ -102,8 +103,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
+  m_Mass: 1
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -206,6 +207,29 @@ MonoBehaviour:
   monsterSO: {fileID: 0}
   monster: {fileID: 0}
   conditionBar: {fileID: 1899059205819533808}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!95 &3617884346009498531
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2394123056223439424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9be0bff99bef4d4eb2bbe47b3c37dee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2861634988111763666
 GameObject:
   m_ObjectHideFlags: 0
