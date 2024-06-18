@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject stageClearPanel;
     [SerializeField] private TextMeshProUGUI addExpTxt;
+    [SerializeField] private TextMeshProUGUI stageClearTxt;
 
     int setExp;
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        goldManager.Gold = 0;
+        goldManager.Gold = 1000;
         goldManager.UpGold();
         levelManager.SetLevelTxt();
         setExp = DataManager.Instance.expManager.PlayerExp;
@@ -50,7 +51,13 @@ public class GameManager : MonoBehaviour
         stageClearPanel.SetActive(true);
         addExpTxt.text = $"Exp : {setExp} -> {DataManager.Instance.expManager.PlayerExp}";
     }
-
+    public void LoseGame()
+    {
+        DataManager.Instance.expManager.PlayerExp = setExp;
+        stageClearPanel.SetActive(true);
+        stageClearTxt.text = "Stage Failed";
+        addExpTxt.text = $"Exp : {setExp} -> {DataManager.Instance.expManager.PlayerExp}";
+    }
     public void GoStartScene()
     {
         SceneManager.LoadScene(0);

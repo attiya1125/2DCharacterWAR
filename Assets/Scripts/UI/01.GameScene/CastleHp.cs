@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class CastleHp : MonoBehaviour, IDamageable
     {
         if (hpBar.fillAmount == 0)
         {
+            GameManager.instance.LoseGame();
             Destroy(this.gameObject);
         }
     }
@@ -42,5 +44,17 @@ public class CastleHp : MonoBehaviour, IDamageable
         curValue = Mathf.Max(curValue - damage, 0);
         UpdateHpBar(curValue / maxValue);
         SetHpTxt() ;
+    }
+
+    public void UpCastleHp(int level)
+    {
+        float i = maxValue;
+        maxValue *= level;
+        curValue += (maxValue - i);
+        if (curValue > maxValue)
+        {
+            curValue = maxValue;
+        }
+        SetHpTxt();
     }
 }

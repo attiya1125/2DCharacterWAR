@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI levelGoldTxt;
     [SerializeField] private Button levelUpBtn;
+    [SerializeField] private CastleHp castleHp;
 
     private int[] levelUpGold = {100, 200, 300, 400, 500};
     private int _level = 1;
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour
             goldManager.Gold -= levelUpGold[Level - 1];
             Level += 1;
             SetLevelTxt();
+            castleHp.UpCastleHp(Level);
         }
     }
 

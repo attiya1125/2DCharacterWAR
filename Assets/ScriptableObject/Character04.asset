@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3340049fc136afd4ebd52eadf01c5cd1, type: 3}
+  m_Name: Character04
+  m_EditorClassIdentifier: 
+  monsterIcon: {fileID: 21300000, guid: ea36eb4a11f8fd649b620045fbe34183, type: 3}
+  monsterName: 
+  gold: 40
+  exp: 40
+  monsterStats:
+  - stats: 0
+    value: 12
+  - stats: 1
+    value: 5
+  - stats: 2
+    value: 50
+  - stats: 3
+    value: 3
+  - stats: 4
+    value: 1
+  - stats: 5
+    value: 1
+  monsterPrefab: {fileID: 7866277861164954903, guid: 6f76d413a1a75cc4d92c2e0262404b91, type: 3}
+  cooldTime: 5
