@@ -67,11 +67,13 @@ public class EnemyCastle : MonoBehaviour, IDamageable
                 Instantiate(monsterSOs[Random.Range(0, 2)].monsterPrefab, makeMonster.position, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(monsterSOs[Random.Range(0, 2)].monsterPrefab, makeMonster.position, Quaternion.identity);
+                Instantiate(monsterSOs[Random.Range(0, 3)].monsterPrefab, makeMonster.position, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(monsterSOs[Random.Range(0, 4)].monsterPrefab, makeMonster.position, Quaternion.identity);
                 break;
             case 5:
+                Instantiate(monsterSOs[4].monsterPrefab, makeMonster.position, Quaternion.identity);
                 break;
         }
     }

@@ -902,6 +902,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 632ddd545c618cb44a41c4d35eca3830, type: 2}
   - {fileID: 11400000, guid: f366a4273caed3b4fb348855c6f342d0, type: 2}
   - {fileID: 11400000, guid: e8772f1b4e0146143b63b7c2847cc73f, type: 2}
+  - {fileID: 11400000, guid: 822d35d93e633e14bb98bd618d377385, type: 2}
+  - {fileID: 11400000, guid: cc59188ca0d83b349b46e0340d7a6fb6, type: 2}
   makeMonster: {fileID: 50312498}
   castleHp: {fileID: 1125452770}
   hpBar: {fileID: 1691483596}
@@ -2719,8 +2721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 873, y: 204}
-  m_SizeDelta: {x: 170, y: 0}
+  m_AnchoredPosition: {x: 857.4, y: 204}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125452769
 MonoBehaviour:
